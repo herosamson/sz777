@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #2d003b;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 90%;
+            max-width: 400px;
+            background: #4a0073;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .tabs span {
+            cursor: pointer;
+            padding: 10px;
+        }
+        .tabs .active {
+            color: #ff00ff;
+            font-weight: bold;
+            border-bottom: 2px solid #ff00ff;
+        }
+
+        /* Input Fields */
+        .input-box {
+            background: #330050;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .input-box input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: white;
+            flex: 1;
+            padding-left: 10px;
+        }
+        .input-box i {
+            color: #ff00ff;
+        }
+
+        /* Button */
+        .login-btn {
+            width: 100%;
+            background: #ff00ff;
+            padding: 10px;
+            border: none;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .login-btn:hover {
+            background: #cc00cc;
+        }
+
+        .back-btn {
+            width: 10%;
+            background: #660066;
+            padding: 10px;
+            border: none;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            margin-left: 160px;
+        }
+        .back-btn:hover {
+            background: #550055;
+        }   
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="tabs">
+            <span id="register-tab" onclick="window.location.href='register.html'"><i class="fa-solid fa-user-plus"></i> Register</span>
+            <span id="login-tab" class="active"><i class="fa-solid fa-right-to-bracket"></i> Login</span>
+        </div>
+
+        <label>Suporta Numero ng Telepono/Account Login</label>
+        <div class="input-box">
+            <i class="fa-solid fa-user"></i>
+            <input type="text" placeholder="Please enter Numero ng telepono/Account">
+        </div>
+        <div class="input-box">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" placeholder="Mangyaring ipasok ang iyong password">
+            <i class="fa-solid fa-eye-slash toggle-password"></i>
+        </div>
+        <br>
+        <div class="checkbox">
+            <input type="checkbox">
+            <label>Tandaan ang password ng account</label>
+        </div>
+        <button class="login-btn">Login</button>
+        <button class="back-btn" onclick="window.location.href='index.html'">X</button> 
+       
+    </div>
+
+</body>
+</html>
