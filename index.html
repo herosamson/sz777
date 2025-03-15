@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SZ777 Clone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            background: #3a0066;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            background: #52008a;
+            color: #ff00ff;
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .auth-buttons button {
+            background: #ff00ff;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        .banner img {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        /* Marquee effect */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+            background: #6400a3;
+            padding: 10px 0;
+            margin-top: 10px;
+        }
+        .marquee-text {
+            display: inline-block;
+            color: #ffdd00;
+            font-size: 15px;
+            font-weight: bold;
+            animation: marquee 10s linear infinite;
+        }
+        @keyframes marquee {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(100%);
+            }
+        }
+        .icons {
+            display: flex;
+            justify-content: space-around;
+            padding: 15px;
+        }
+        .icons a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .icons i {
+            font-size: 24px;
+        }
+        .icons span {
+            margin-top: 5px;
+            font-size: 14px;
+        }
+        .games {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 30px;
+        }
+        .game {
+            background: #6400a3;
+            border-radius: 10px;    
+            font-weight: bold;
+        }
+        .game img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            padding: 15px;
+            background: #52008a;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .bottom-nav i {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">SZ777</div>
+        <div class="auth-buttons">
+            <button class="login">Login</button>
+            <button class="register">Register</button>
+        </div>
+    </header>
+    <section class="banner">
+        <img src="pro.jpg" alt="Promotional Banner">
+    </section>
+    
+    <!-- Moving text below the banner -->
+    <div class="marquee-container">
+        <div class="marquee-text">🔥 Welcome to SZ777! Play, Win, and Enjoy! 🎰💰</div>
+    </div>
+
+    <section class="icons">
+        <a href="#"><i class="fa-solid fa-fire"></i><span>Hot</span></a>
+        <a href="#"><i class="fa-solid fa-dice"></i><span>Casino</span></a>
+        <a href="#"><i class="fa-solid fa-cubes"></i><span>Slots</span></a>
+        <a href="#"><i class="fa-solid fa-fish"></i><span>Fishing</span></a>
+        <a href="#"><i class="fa-solid fa-star"></i><span>Favorites</span></a>
+    </section>
+    <section class="games">
+        <div class="game"><img src="sa.png" alt="Super Ace"></div>
+        <div class="game"><img src="ge.png" alt="Golden Empire"></div>
+        <div class="game"><img src="mc.jpg" alt="Fortune Tiger"></div>
+        <div class="game"><img src="eb.png" alt="Egypt Bonanza"></div>
+        <div class="game"><img src="lf.png" alt="Lucky Fish"></div>
+        <div class="game"><img src="fg1.png" alt="Fortune Gods"></div>
+    </section>
+    <nav class="bottom-nav">
+        <i class="fa-solid fa-home"></i>
+        <i class="fa-solid fa-gift"></i>
+        <i class="fa-solid fa-wallet"></i>
+        <i class="fa-solid fa-download"></i>
+        <i class="fa-solid fa-user"></i>
+    </nav>
+</body>
+</html>
