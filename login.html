@@ -56,6 +56,7 @@
             padding: 10px;
             border-radius: 5px;
             margin-top: 10px;
+            position: relative;
         }
         .input-box input {
             background: transparent;
@@ -67,6 +68,19 @@
         }
         .input-box i {
             color: #ff00ff;
+            cursor: pointer;
+        }
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+        }
+
+        /* Error Message */
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
         }
 
         /* Button */
@@ -102,7 +116,6 @@
         .back-btn:hover {
             background: #550055;
         }   
-
     </style>
 </head>
 <body>
@@ -116,22 +129,53 @@
         <label></label>
         <div class="input-box">
             <i class="fa-solid fa-user"></i>
-            <input type="text" placeholder="Please enter your Phone Number">
+            <input type="text" id="phone-number" placeholder="Please enter your Phone Number" maxlength="11">
         </div>
+        <p id="phone-error" class="error">Invalid Phone Number.</p>
+
         <div class="input-box">
             <i class="fa-solid fa-lock"></i>
-            <input type="password" placeholder="Please enter your Password">
-            <i class="fa-solid fa-eye-slash toggle-password"></i>
+            <input type="password" id="password" placeholder="Please enter your Password">
+            <i class="fa-solid fa-eye-slash toggle-password" onclick="togglePassword()"></i>
         </div>
         <br>
         <div class="checkbox">
             <input type="checkbox">
             <label>Remember Password</label>
         </div>
-        <button class="login-btn" onclick="window.location.href='indexlog.html'">Login</button>
+        <button class="login-btn" onclick="validateForm()">Login</button>
         <button class="back-btn" onclick="window.location.href='index.html'">X</button> 
-       
     </div>
+
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById("password");
+            const toggleIcon = document.querySelector(".toggle-password");
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                toggleIcon.classList.remove("fa-eye-slash");
+                toggleIcon.classList.add("fa-eye");
+            } else {
+                passwordField.type = "password";
+                toggleIcon.classList.remove("fa-eye");
+                toggleIcon.classList.add("fa-eye-slash");
+            }
+        }
+
+        function validateForm() {
+            const phoneInput = document.getElementById("phone-number");
+            const phoneError = document.getElementById("phone-error");
+            const phoneValue = phoneInput.value.trim();
+
+            if (!/^\d{11}$/.test(phoneValue)) {
+                phoneError.style.display = "block";
+            } else {
+                phoneError.style.display = "none";
+                window.location.href = 'indexlog.html';
+            }
+        }
+    </script>
 
 </body>
 </html>
