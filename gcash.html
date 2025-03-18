@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Methods</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .payment-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .payment-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .payment-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .payment-box img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+
+        .payment-box h3 {
+            font-size: 18px;
+            color: #333;
+        }
+
+        @media (max-width: 500px) {
+            .payment-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="payment-container">
+        <div class="payment-box">
+            <img src="gccasah.png" alt="GCash">
+            <h3>GCash</h3>
+        </div>
+        <div class="payment-box">
+            <img src="maya.png" alt="Maya">
+            <h3>Maya</h3>
+        </div>
+        <div class="payment-box">
+            <img src="bdo.png" alt="BDO">
+            <h3>BDO</h3>
+        </div>
+        <div class="payment-box">
+            <img src="bpi.png" alt="BPI">
+            <h3>BPI</h3>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SZ777</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            background: #3a0066;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            background: #52008a;
+            color: #ff00ff;
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .auth-buttons button {
+            background: #ff00ff;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        .banner img {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        /* Marquee effect */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+            background: #6400a3;
+            padding: 10px 0;
+            margin-top: 10px;
+        }
+        .marquee-text {
+            display: inline-block;
+            color: #ffdd00;
+            font-size: 15px;
+            font-weight: bold;
+            animation: marquee 8s linear infinite;
+        }
+        @keyframes marquee {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+        .icons {
+            display: flex;
+            justify-content: space-around;
+            padding: 15px;
+        }
+        .icons a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .icons i {
+            font-size: 24px;
+        }
+        .icons span {
+            margin-top: 5px;
+            font-size: 14px;
+        }
+        .games {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 30px;
+        }
+        .game {
+            background: #6400a3;
+            border-radius: 10px;    
+            font-weight: bold;
+        }
+        .game img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            padding: 15px;
+            background: #52008a;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .bottom-nav i {
+            font-size: 24px;
+        }
+
+
+        .floating-container {
+    position: fixed;
+    bottom: 290px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.floating-box {
+    position: relative;
+    width: 38px;
+    height: 38px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.floating-box img {
+    width: 60px;
+    height: 63px;
+}
+
+.close-btn {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+.popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+    
+    .popup-content {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        color: black;
+        max-width: 400px;
+    }
+
+    .popup-content h2 {
+        color: #52008a;
+    }
+
+    .popup-content button {
+        background: #52008a;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .popup-content a {
+        color: #52008a;
+        text-decoration: none;
+    }
+
+
+
+    .notice-img {
+        width: 50%;
+        max-width: 350px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+    }
+
+    .balance-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.balance {
+    display: flex;
+    align-items: center;
+    background: #34005c;
+    padding: 5px 10px;
+    border-radius: 20px;
+    color: #ffdd00;
+    font-weight: bold;
+    font-size: 15px; /* Decrease font size */
+}
+
+.currency-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.deposit-button {
+    background: #ff00ff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.bonus-tag {
+    background: #ff6f00;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+
+.popup-overlay {
+        background: rgba(0, 0, 0, 0.85);
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .popup-content {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(12px);
+        border-radius: 15px;
+        padding: 25px;
+        max-width: 400px;
+        width: 90%;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    h2 {
+        color: #ffdd00;
+        margin-bottom: 10px;
+        font-size: 24px;
+    }
+
+    .sub-title {
+        font-size: 14px;
+        margin-bottom: 15px;
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .amount-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin: 15px 0;
+    }
+
+    .amount {
+        background: #52008a;
+        color: white;
+        padding: 12px 18px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        transition: 0.3s;
+    }
+
+    .amount:hover {
+        background: #ff00ff;
+        transform: scale(1.05);
+    }
+
+    .input-box {
+        margin: 15px 0;
+    }
+
+    .input-box input {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        border: none;
+        font-size: 16px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        outline: none;
+        margin-left: -10px;
+    }
+
+    .confirm-deposit {
+        background: #ff00ff;
+        color: white;
+        padding: 12px;
+        border: none;
+        cursor: pointer;
+        border-radius: 8px;
+        font-size: 18px;
+        margin-top: 10px;
+        width: 100%;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .confirm-deposit:hover {
+        background: #ff0099;
+        transform: scale(1.05);
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: red;
+        color: white;
+        border: none;
+        padding: 8px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .bonus {
+        color: #ffdd00;
+        font-size: 12px;
+        margin-left: 5px;
+    }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">SZ777</div>
+        <div class="balance-container">
+            <div class="balance">
+                <img src="peso.png" alt="Currency" class="currency-icon">
+                <span id="balance-amount">0.00</span>
+                
+            </div>
+            <button id="deposit-btn" class="deposit-button">Deposit <span class="bonus-tag">+20%</span></button>
+            <button id="deposit-btn" class="deposit-button" onclick="window.location.href='withdraw.html'">Withdraw</button>
+
+
+        </div>
+    </header>
+    
+    <section class="banner">
+        <img src="etonga.png" alt="Promotional Banner">
+    </section>
+    
+    <!-- Moving text below the banner -->
+    <div class="marquee-container">
+        <div class="marquee-text">🔥 Welcome to SZ777! Play, Win, and Enjoy! 🎰💰</div>
+    </div>
+
+    <section class="icons">
+        <a href=""><i class="fa-solid fa-fire"></i><span>Hot</span></a>
+        <a href=""><i class="fa-solid fa-dice"></i><span>Casino</span></a>
+        <a href=""><i class="fa-solid fa-cubes"></i><span>Slots</span></a>
+        <a href=""><i class="fa-solid fa-fish"></i><span>Fishing</span></a>
+        <a href=""><i class="fa-solid fa-star"></i><span>Favorites</span></a>
+    </section>
+    <section class="games">
+        <div class="game"><img src="sa.png" alt="Super Ace" class="deposit-trigger"></div>
+        <div class="game"><img src="ge.png" alt="Golden Empire" class="deposit-trigger"></div>
+        <div class="game"><img src="mc.jpg" alt="Fortune Tiger" class="deposit-trigger"></div>
+        <div class="game"><img src="eb.png" alt="Egypt Bonanza" class="deposit-trigger"></div>
+        <div class="game"><img src="lf.png" alt="Lucky Fish" class="deposit-trigger"></div>
+        <div class="game"><img src="fg1.png" alt="Fortune Gods" class="deposit-trigger"></div>
+    
+        <div class="game"><img src="gwb.jpg" alt="Super Ace" class="deposit-trigger"></div>
+        <div class="game"><img src="lightning-baccarat.jpg" alt="Golden Empire" class="deposit-trigger"></div>
+        <div class="game"><img src="aauto.jpg" alt="Fortune Tiger" class="deposit-trigger"></div>
+        <div class="game"><img src="speed-auto-roulette.png" alt="Egypt Bonanza" class="deposit-trigger"></div>
+        <div class="game"><img src="mine.png" alt="Lucky Fish" class="deposit-trigger"></div>
+        <div class="game"><img src="ct.png" alt="Fortune Gods" class="deposit-trigger"></div>
+    </section>
+    
+    
+    <nav class="bottom-nav">
+        <i class="fa-solid fa-home" onclick="window.location.href='indexlog.html'"></i>
+<i class="fa-solid fa-gift" onclick="window.location.href='donations.html'"></i>
+<i class="fa-solid fa-wallet" onclick="window.location.href='wallet.html'"></i>
+<i class="fa-solid fa-download" onclick="window.location.href='downloads.html'"></i>
+<i class="fa-solid fa-user" onclick="window.location.href='profile.html'"></i>
+
+    </nav>
+
+
+
+    
+
+
+
+
+
+    <div id="deposit-popup" class="popup-overlay" style="display: none;">
+        <div class="popup-content">
+            <button class="close-btn" onclick="closeDepositPopup()">✖</button>
+            
+            <h2>Deposit amount</h2>
+            
+    
+           
+    
+            
+            <div class="amount-options">
+                <button class="amount">100</button><span class="bonus">20%</span>
+                
+                <button class="amount">500</button><span class="bonus">20%</span>
+                <button class="amount">1000</button><span class="bonus">20%</span>
+               
+                <button class="amount">5000</button><span class="bonus">20%</span>
+                <button class="amount">10000</button><span class="bonus">20%</span>
+                <button class="amount">50000</button><span class="bonus">20%</span>
+            </div>
+    
+            <div class="input-box">
+                <input type="number" placeholder="₱ Minimum 100, Maximum 50,000" readonly>
+            </div>
+    
+            <button class="confirm-deposit">CONFIRM</button>
+        </div>
+    </div>
+    
+
+
+
+ 
+    
+<script>
+
+function removeElement(id) {
+    document.getElementById(id).remove(); // Completely removes the element
+}
+
+function redirectToRegister() {
+    window.location.href = "register.html"; // Redirects to register.html
+}
+
+
+
+
+document.getElementById('deposit-btn').addEventListener('click', function() {
+    document.getElementById('deposit-popup').style.display = 'flex';
+});
+
+function closeDepositPopup() {
+    document.getElementById('deposit-popup').style.display = 'none';
+}
+
+
+
+// Select all amount buttons
+// Select all deposit amount buttons
+document.querySelectorAll('.amount').forEach(button => {
+    button.addEventListener('click', function () {
+        let amount = this.innerText.trim(); // Get the amount
+        document.querySelector('.input-box input').placeholder = `₱ ${amount}`; // Update placeholder
+    });
+});
+
+// Confirm deposit and redirect to payment page
+document.querySelector('.confirm-deposit').addEventListener('click', function () {
+    let amountInput = document.querySelector('.input-box input').placeholder.replace('₱ ', '').trim(); 
+    if (!amountInput || isNaN(amountInput)) {
+        alert("Please select a valid deposit amount.");
+        return;
+    }
+    window.location.href = `gcash-payment.html?amount=${amountInput}`;
+});
+
+
+//deposit image go to 
+// Select all images with the "deposit-trigger" class
+document.querySelectorAll('.deposit-trigger').forEach(img => {
+    img.addEventListener('click', function () {
+        document.getElementById('deposit-popup').style.display = 'flex';
+    });
+});
+
+// Function to close the deposit popup
+function closeDepositPopup() {
+    document.getElementById('deposit-popup').style.display = 'none';
+}
+
+
+</script>
+
+    
+</body>
+</html>

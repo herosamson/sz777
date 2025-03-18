@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCash Payment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .gcash-header {
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 10px 10px 0 0;
+        }
+        .gcash-img {
+            width: 200px;
+            margin-top: 20px;
+        }
+        .amount {
+            font-size: 24px;
+            font-weight: bold;
+            color: blue;
+            margin: 10px 0;
+        }
+        .pay-info {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 5px;
+        }
+        .copy-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .confirm-btn {
+            background: orange;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="gcash-header">GCash</div>
+        <p>Upload or Scan QR code on GCash</p>
+        <p style="color: red;">IOS users, please screenshot the QR code</p>
+        <img src="" id="gcash-qr" class="gcash-img" alt="GCash QR Code">
+        <p class="amount" id="payment-amount">PHP 0.00</p>
+        <button class="confirm-btn" onclick="alert('Payment in progress...')">Have you not received your top-up yet?</button>
+        
+        <div class="pay-info">
+            <span>Amount</span>
+            <span id="pay-info-amount">0.00</span>
+            <button class="copy-btn" onclick="copyAmount()">Copy</button>
+        </div>
+    </div>
+
+    <script>
+        function getQueryParam(param) {
+            let params = new URLSearchParams(window.location.search);
+            return params.get(param);
+        }
+
+        let depositAmount = getQueryParam('amount') || '0.00';
+        document.getElementById('payment-amount').innerText = `PHP ${depositAmount}`;
+        document.getElementById('pay-info-amount').innerText = depositAmount;
+
+        // Load QR code based on amount
+        let qrImage = document.getElementById('gcash-qr');
+        let qrCodePath = `qrcodes/${depositAmount}.png`; // Assuming QR codes are stored in 'qrcodes/' folder
+        qrImage.src = qrCodePath;
+
+        function copyAmount() {
+            navigator.clipboard.writeText(depositAmount);
+            alert("Amount copied!");
+        }
+    </script>
+</body>
+</html>

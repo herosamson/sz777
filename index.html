@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SZ777 Clone</title>
+    <title>SZ777</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         body {
@@ -51,16 +51,17 @@
             color: #ffdd00;
             font-size: 15px;
             font-weight: bold;
-            animation: marquee 10s linear infinite;
+            animation: marquee 8s linear infinite;
         }
         @keyframes marquee {
-            from {
-                transform: translateX(-100%);
-            }
-            to {
-                transform: translateX(100%);
-            }
-        }
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
         .icons {
             display: flex;
             justify-content: space-around;
@@ -165,6 +166,56 @@
 
 
 
+.popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+    
+    .popup-content {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        color: black;
+        max-width: 400px;
+    }
+
+    .popup-content h2 {
+        color: #52008a;
+    }
+
+    .popup-content button {
+        background: #52008a;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .popup-content a {
+        color: #52008a;
+        text-decoration: none;
+    }
+
+
+
+    .notice-img {
+        width: 50%;
+        max-width: 350px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+    }
+
 
     </style>
 </head>
@@ -178,7 +229,7 @@
         </div>
     </header>
     <section class="banner">
-        <img src="pro.jpg" alt="Promotional Banner">
+        <img src="etonga.png" alt="Promotional Banner">
     </section>
     
     <!-- Moving text below the banner -->
@@ -194,19 +245,30 @@
         <a href="register.html"><i class="fa-solid fa-star"></i><span>Favorites</span></a>
     </section>
     <section class="games">
-        <div class="game"><img src="sa.png" alt="Super Ace"></div>
-        <div class="game"><img src="ge.png" alt="Golden Empire"></div>
-        <div class="game"><img src="mc.jpg" alt="Fortune Tiger"></div>
-        <div class="game"><img src="eb.png" alt="Egypt Bonanza"></div>
-        <div class="game"><img src="lf.png" alt="Lucky Fish"></div>
-        <div class="game"><img src="fg1.png" alt="Fortune Gods"></div>
+        <div class="game"><a href="register.html"><img src="sa.png" alt="Super Ace"></a></div>
+        <div class="game"><a href="register.html"><img src="ge.png" alt="Golden Empire"></a></div>
+        <div class="game"><a href="register.html"><img src="mc.jpg" alt="Fortune Tiger"></a></div>
+        <div class="game"><a href="register.html"><img src="eb.png" alt="Egypt Bonanza"></a></div>
+        <div class="game"><a href="register.html"><img src="lf.png" alt="Lucky Fish"></a></div>
+        <div class="game"><a href="register.html"><img src="fg1.png" alt="Fortune Gods"></a></div>
+
+        
+
+        <div class="game"><a href="register.html"><img src="gwb.jpg" alt="Super Ace"></a></div>
+        <div class="game"><a href="register.html"><img src="lightning-baccarat.jpg" alt="Golden Empire"></a></div>
+        <div class="game"><a href="register.html"><img src="aauto.jpg" alt="Fortune Tiger"></a></div>
+        <div class="game"><a href="register.html"><img src="speed-auto-roulette.png" alt="Egypt Bonanza"></a></div>
+        <div class="game"><a href="register.html"><img src="mine.png" alt="Lucky Fish"></a></div>
+        <div class="game"><a href="register.html"><img src="ct.png" alt="Fortune Gods"></a></div>
     </section>
+    
     <nav class="bottom-nav">
-        <i class="fa-solid fa-home"></i>
-        <i class="fa-solid fa-gift"></i>
-        <i class="fa-solid fa-wallet"></i>
-        <i class="fa-solid fa-download"></i>
-        <i class="fa-solid fa-user"></i>
+        <i class="fa-solid fa-home" onclick="window.location.href='home.html'"></i>
+<i class="fa-solid fa-gift" onclick="window.location.href='donations.html'"></i>
+<i class="fa-solid fa-wallet" onclick="window.location.href='wallet.html'"></i>
+<i class="fa-solid fa-download" onclick="window.location.href='downloads.html'"></i>
+<i class="fa-solid fa-user" onclick="window.location.href='profile.html'"></i>
+
     </nav>
 
 
@@ -218,6 +280,34 @@
         </div>
         
     </div>
+
+
+
+
+
+    <div id="notice-popup" class="popup-overlay">
+        <div class="popup-content">
+
+            <img src="PAGCOR-Logo.png" alt="Notice Information" class="notice-img">
+
+            <h2>NOTICE</h2>
+            <p>By entering this website, you acknowledge and confirm:</p>
+            <ul>
+                <li>You are 21 years old and above.</li>
+                <li>You are not a government official or employee connected directly with the operation of the Government.</li>
+                <li>You are not a Gaming Employment License (GEL) holder.</li>
+                <li>You are not included in the PAGCOR’s National Database of Restricted Persons (NDRP).</li>
+                <li>Funds or credits in the account of ineligible players shall be forfeited.</li>
+                <li>You agree to the <a href="#">Terms of Use</a>.</li>
+            </ul>
+
+            
+
+            <button onclick="acceptNotice()">I Agree</button>
+        </div>
+    </div>
+
+
     
     
 <script>
@@ -229,6 +319,25 @@ function removeElement(id) {
 function redirectToRegister() {
     window.location.href = "register.html"; // Redirects to register.html
 }
+
+
+
+
+
+function acceptNotice() {
+        document.getElementById('notice-popup').style.display = 'none';
+        localStorage.setItem('noticeAccepted', 'true');
+    }
+
+    // Show the notice only if the user hasn't accepted before
+    window.onload = function () {
+        if (!localStorage.getItem('noticeAccepted')) {
+            document.getElementById('notice-popup').style.display = 'flex';
+        }
+    };
+
+
+
 
 
 </script>
