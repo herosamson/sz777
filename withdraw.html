@@ -66,6 +66,20 @@
             margin-right: 10px;
         }
 
+        .gcash-input {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 14px;
+            width: 100%;
+            margin-left: 10px;
+            outline: none;
+        }
+
+        .gcash-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
         .input-box {
             background: #28034e;
             color: white;
@@ -73,23 +87,6 @@
             border-radius: 5px;
             margin-top: 10px;
             width: 100%;
-            border: none;
-            font-size: 16px;
-        }
-
-        .password-box {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-        }
-
-        .password-box input {
-            width: 18%;
-            padding: 10px;
-            background: #28034e;
-            color: white;
-            text-align: center;
-            border-radius: 5px;
             border: none;
             font-size: 16px;
         }
@@ -140,13 +137,22 @@
         .btn:hover {
             opacity: 0.8;
         }
+
+        /* Withdrawing text style */
+        .withdrawing-text {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+            text-align: center;
+            display: none; /* Initially hidden */
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
         <div class="header">
-            <span>Apply for withdrawal</span>
+            <span>Withdrawal</span>
             <span>🎧</span>
         </div>
 
@@ -156,22 +162,11 @@
 
         <div class="dropdown">
             <img src="gcashlogo.png" alt="GCash" width="20">
-            <span>GCASH(09*********)</span>
+            <input type="text" class="gcash-input" placeholder="Enter GCash Number" maxlength="11" pattern="\d*">
             <span>⬇️</span>
         </div>
 
-        <input type="text" class="input-box" placeholder="₱ Minimum 100, Maximum 50000" readonly>
-
-        <div class="balance" style="margin-top: 10px;">
-            Verify Withdrawal Password
-        </div>
-
-        <div class="password-box">
-            <input type="password" maxlength="1">
-            <input type="password" maxlength="1">
-            <input type="password" maxlength="1">
-            <input type="password" maxlength="1">
-        </div>
+        <input type="number" class="input-box" placeholder="₱ Minimum 100, Maximum 50000" >
 
         <div class="note">
             Reminder: Please confirm your withdrawal account information to avoid processing errors or withdrawal failures.
@@ -181,10 +176,18 @@
 
         <div class="btn-group">
             <button class="btn btn-interest" onclick="window.location.href='indexlog.html'">Cancel</button>
-
-            <button class="btn btn-withdraw">Confirm</button>
+            <button class="btn btn-withdraw" onclick="showWithdrawing()">Confirm</button>
         </div>
+
+        <!-- Withdrawing message -->
+        <div class="withdrawing-text" id="withdrawingText">Insufficient Balance</div>
     </div>
+
+    <script>
+        function showWithdrawing() {
+            document.getElementById("withdrawingText").style.display = "block";
+        }
+    </script>
 
 </body>
 </html>
